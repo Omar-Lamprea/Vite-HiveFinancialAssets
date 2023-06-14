@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      Hola Cloudflare
+      Hola Cloudflare x2
     </>
   )
 }

@@ -1,0 +1,51 @@
+.carousel{
+  .carousel-inner, .carousel-item, img{
+    height: 65vh;
+    object-fit: cover;
+    @include media-query('large') {
+      height: inherit;
+    }
+  }
+
+  .carousel-caption{
+    top: calc(50% - 65px);
+    width: 100%;
+    right: inherit;
+    bottom: inherit;
+    left: inherit;
+    @include media-query('small') {
+      top: calc(50% - 48px);
+    }
+    h3{
+      padding: .5rem 1rem;
+      margin: auto;
+      font-weight: 100;
+      font-size: 25px;
+      @include media-query('large'){
+        max-width: 700px;
+      }
+    }
+    p{
+      background-color: var(--second-bg-color);
+      max-width: fit-content;
+      margin: auto;
+      margin-top: 1rem;
+      padding: 1rem;
+      @include media-query('large'){
+        max-width: 331px;
+      }
+    }
+  }
+  .caption-1{
+    background-color: var(--main-bg-color);
+    &-year{
+      font-size: 35px;
+      padding: .5rem;
+    }
+  }
+  .carousel-caption-3{
+    @include media-query('medium'){
+      width: 50%;
+    }
+  }
+}

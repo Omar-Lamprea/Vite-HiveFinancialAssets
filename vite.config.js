@@ -8,9 +8,9 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         additionalData: `
+          @import "./src/styles/scss/_mixin.scss";
           @import "./src/styles/scss/_global.scss";
           @import "./src/styles/scss/_variables.scss";
-          @import "./src/styles/scss/_mixin.scss";
         `
       }
     }

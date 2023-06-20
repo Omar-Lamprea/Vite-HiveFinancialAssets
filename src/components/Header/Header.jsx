@@ -15,7 +15,7 @@ const Header = () => {
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" className='btn-hamburger'/>
           <Navbar.Collapse className='justify-content-end' id="basic-navbar-nav">
-            <Nav className="">
+            <Nav className="items">
               <Nav.Link href="#">TEAM</Nav.Link>
               <Nav.Link href="#">NEWS & EVENTS</Nav.Link>
             </Nav>

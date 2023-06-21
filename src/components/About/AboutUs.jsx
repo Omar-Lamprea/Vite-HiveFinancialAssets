@@ -6,7 +6,7 @@ import video2 from '../../assets/images/about/about-us-02.webp'
 
 const AboutUs = () => {
   return (
-    <Container fluid className='about-us px-0 my-5 d-md-flex'>
+    <Container fluid className='about-us px-0 mt-5 d-md-flex'>
       <div className="about-img">
         <img src={image} alt="" />
       </div>

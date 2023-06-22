@@ -1,6 +1,9 @@
 import { Container } from 'react-bootstrap'
 import './TeamHome.scss'
 import UserCard from './UserCard'
+import photo1 from '../../assets/images/team/foto_team_1.webp'
+import photo2 from '../../assets/images/team/foto_team_2.webp'
+import photo3 from '../../assets/images/team/foto_team_3.webp'
 
 const TeamHome = () => {
 
@@ -9,19 +12,19 @@ const TeamHome = () => {
       id: 1,
       name: 'JP James',
       title: 'Strategy',
-      photo: '/src/assets/images/team/foto_team_1.webp'
+      photo: photo1
     },
     {
       id: 2,
       name: 'MICHAEL SCHWARTZ',
       title: 'CAO',
-      photo: '/src/assets/images/team/foto_team_2.webp'
+      photo: photo2
     },
     {
       id: 3,
       name: 'SANDEEP PRABHAKARA',
       title: 'CRO',
-      photo: '/src/assets/images/team/foto_team_3.webp'
+      photo: photo3
     },
   ]
   return (

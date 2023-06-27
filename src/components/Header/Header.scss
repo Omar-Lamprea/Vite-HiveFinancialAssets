@@ -10,7 +10,7 @@
   .navbar{
     min-height: 134px;
     background-color: var(--main-bg-color);
-    .logo{
+    .logo img{
       width: 270px;
       @include media-query('small') {
         width: 318px
@@ -23,6 +23,7 @@
         text-align: center;
         font-size: 18px;
         &:hover{
+          transition: .15s ease-in all;
           color: #EECC5F;
         }
       }

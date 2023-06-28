@@ -4,7 +4,7 @@ import Layout from './components/Layout/Layout'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import Team from './pages/Team/Team'
-import Events from './pages/Events'
+import Events from './pages/Events/Events'
 // import { useContextGlobal } from './context/global.context'
 
 function App() {

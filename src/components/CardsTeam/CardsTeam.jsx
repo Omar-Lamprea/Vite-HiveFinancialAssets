@@ -14,7 +14,7 @@ const CardsTeam = ({user, className}) => {
 
 
   return (
-    <article className={"card-team " + className}>
+    <article className={"card-team " + className} id={"user-"+ user.id}>
       <div className="card-team_img">
         <img src={user.photo} alt="" />
       </div>

@@ -1,33 +1,35 @@
 import PropTypes from 'prop-types';
 import './CardsTeam.scss'
-import React from 'react';
 import iconLink from '../../assets/icons/linkedin-brown.webp'
 
 const CardsTeam = ({user, className}) => {
-  const lines = user.description.split("\n");
-  
-  const descriptionFormated = lines.map((line, index) => 
-    <React.Fragment key={index}>
-      {line}<br/><br/>
-    </React.Fragment>
-  )
 
+  const textNormalized = (text) =>{
+    return text.replaceAll(/\r\n/g, '<br />')
+  }
 
   return (
     <article className={"card-team " + className} id={"user-"+ user.id}>
       <div className="card-team_img">
-        <img src={user.photo} alt="" />
+        <img src={user.featured_image_src} alt="member team" />
       </div>
       <div className="card-team_data">
         <div className="title">
-          <p className='title_name'>{user.name}</p>
-          <p className='title_title'>{user.title}</p>
+          <p className='title_name'>{user.title.rendered}</p>
+          <p 
+            className='title_title'
+            dangerouslySetInnerHTML={{__html: user.excerpt.rendered}}>
+          </p>
         </div>
         <div className="description">
-          <p>{descriptionFormated}</p>
+          <p
+            dangerouslySetInnerHTML={
+              {__html: textNormalized(user.custom_fields.member_description[0])}
+            }>
+          </p>
         </div>
         <div className="linkedIn">
-          <a href={user.linkedIn} target="_blank" rel="noopener noreferrer">
+          <a href={user.custom_fields.social_linkedin} target="_blank" rel="noopener noreferrer">
             <img src={iconLink} alt="linkedIn" />
           </a>
         </div>

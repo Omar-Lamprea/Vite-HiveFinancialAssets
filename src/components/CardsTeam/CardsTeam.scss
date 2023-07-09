@@ -30,7 +30,7 @@
     img{
       width: 100%;
       @include media-query(large){
-        width: inherit;
+        width: 325px;
       }
     }
   }

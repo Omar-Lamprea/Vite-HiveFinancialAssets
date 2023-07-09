@@ -2,6 +2,7 @@
   .container-events{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 5rem 0;
     padding: 4rem 1rem;
     background-color: #F4F3F3;
@@ -10,7 +11,8 @@
     }
     article{
       max-width: 950px;
-      margin: auto;
+      width: 100%;
+      // margin: auto;
     }
   }
 }

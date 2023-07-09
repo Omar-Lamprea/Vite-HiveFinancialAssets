@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import PropTypes from 'prop-types';
 import { GLOBAL_API } from "../utils/constants";
-import { teamData } from "../utils/teamData";
 
 const initialState = {
   URL_API: GLOBAL_API,
@@ -29,10 +28,28 @@ const ContextProvider = ({ children }) => {
 
   
   useEffect(() =>{
-   const getTeam = async () =>{
-    dispatch({type: 'setTeam', payload: teamData})
-   }
-   getTeam()
+    const env = import.meta.env
+    fetch(
+      `${env.VITE_CMS_BASE_URL}${env.VITE_CMS_API_URL}team-members`
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        json.sort((a, b) => {
+          const titleA = a.title.rendered.toUpperCase();
+          const titleB = b.title.rendered.toUpperCase();
+        
+          if (titleA < titleB) {
+            return -1;
+          }
+          if (titleA > titleB) {
+            return 1;
+          }
+          return 0;
+        });
+        dispatch({type: 'setTeam', payload: json})
+      });
   },[])
   
   

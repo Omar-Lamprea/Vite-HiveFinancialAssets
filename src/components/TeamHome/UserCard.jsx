@@ -7,12 +7,14 @@ const UserCard = ({user}) => {
       <Link to={"/team?id=" + user.id}>
         <div 
           className="user_photo"
-          style={{backgroundImage: `url('${user.photo}')`}}>
+          style={{backgroundImage: `url('${user.featured_image_src}')`}}>
         </div>
         
         <aside className='container-user-data'>
-          <h3>{user.name}</h3>
-          <p>{user.title}</p>
+          <h3>{user.title.rendered}</h3>
+          <p 
+            dangerouslySetInnerHTML={{__html: user.excerpt.rendered}}>
+          </p>
         </aside>
       </Link>
     </section>

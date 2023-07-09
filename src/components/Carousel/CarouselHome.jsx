@@ -46,7 +46,7 @@ const CarouselHome = () => {
         <Carousel.Caption className="carousel-caption-3">
           <h3>Third slide label</h3>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            Learn more
           </p>
         </Carousel.Caption>
       </Carousel.Item>

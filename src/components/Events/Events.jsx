@@ -1,5 +1,6 @@
 import { Container } from 'react-bootstrap'
 import './Events.scss'
+import { Link } from 'react-router-dom'
 
 const Events = () => {
 
@@ -14,7 +15,9 @@ const Events = () => {
                 Q&A to follow.
               </p>
               <h3>Investor <br />Update</h3>
-              <p className='events_code'>Q1 FY 2023</p>
+              <Link to="/events">
+                <p className='events_code'>Q1 FY 2023</p>
+              </Link>
               <span></span>
             </>
         </div>

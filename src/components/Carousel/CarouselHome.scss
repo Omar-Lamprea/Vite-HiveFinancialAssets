@@ -21,6 +21,7 @@
       margin: auto;
       font-weight: 100;
       font-size: 25px;
+      letter-spacing: 3px;
       @include media-query('large'){
         max-width: 700px;
       }
@@ -30,7 +31,7 @@
       max-width: fit-content;
       margin: auto;
       margin-top: 1rem;
-      padding: 1rem;
+      padding: 0 1rem;
       @include media-query('large'){
         max-width: 331px;
       }

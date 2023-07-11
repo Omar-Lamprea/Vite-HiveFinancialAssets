@@ -4,8 +4,8 @@ const SkillCard = ({data, className}) => {
   return (
     <section className={'skills_card ' + className}>
       <img src={data.icon} alt="" />
-      <h3>{data.title}</h3>
-      <p>{data.content}</p>
+      <h3>{data.title.rendered}</h3>
+      <p>{data.custom_fields.skill_description}</p>
     </section>
   )
 }

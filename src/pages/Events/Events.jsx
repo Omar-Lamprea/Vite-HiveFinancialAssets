@@ -17,7 +17,7 @@ const Events = () => {
     window.scrollTo(0, 0);
     const env = import.meta.env
     fetch(
-      `${env.VITE_CMS_BASE_URL}${env.VITE_CMS_API_URL}our_services`
+      `${env.VITE_CMS_BASE_URL}${env.VITE_CMS_API_URL}events`
     )
       .then((response) => {
         return response.json();

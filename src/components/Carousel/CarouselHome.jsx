@@ -33,7 +33,7 @@ const CarouselHome = () => {
   }, []) 
 
   return (
-    <Carousel fade>
+    <Carousel fade interval={4000}>
       {items &&
         items.map((item, i)=>
           <Carousel.Item key={item.id}>

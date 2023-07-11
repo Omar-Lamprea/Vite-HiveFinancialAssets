@@ -76,7 +76,8 @@ const CarouselHome = () => {
                   <Modal show={show} onHide={handleClose} centered size="lg">
                     <video 
                       src={item.custom_fields.carousel_video}
-                      controls>
+                      controls
+                      autoPlay>
                     </video>
                   </Modal>
                 </>

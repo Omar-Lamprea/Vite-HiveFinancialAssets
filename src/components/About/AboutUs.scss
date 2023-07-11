@@ -16,6 +16,14 @@
         object-fit: cover;
       }
     }
+    @include media-query('xxlarge'){
+      img{
+        height: 800px;
+        width: 700px;
+        max-width: inherit;
+        object-position: center top;
+      }
+    }
   }
   .content{
     padding: 1rem;

@@ -22,11 +22,11 @@ const AboutUs = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <Container fluid className='about-us px-0 mt-5 d-md-flex'>
+    <Container fluid className='about-us px-0 mt-5 d-md-flex' id='about-the-found'>
       {fund && 
         <>
-          <div className="about-img">
-            <img src={image} alt="" />
+          <div className="about-img me-md-5 me-lg-3">
+            <img src={image} alt=""/>
           </div>
           <div className="content">
             <div className="content_about d-flex flex-column">

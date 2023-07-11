@@ -1,55 +1,108 @@
 import Carousel from "react-bootstrap/Carousel";
 import './CarouselHome.scss'
-import image1 from '../../assets/images/carousel/1.webp'
-import image2 from '../../assets/images/carousel/2.webp'
-import image3 from '../../assets/images/carousel/3.webp'
+import Modal from 'react-bootstrap/Modal';
+import { useEffect, useState } from "react";
 
 const CarouselHome = () => {
+
+  const [items, setItems] = useState(false)
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const goPage = () =>{
+    const section = document.getElementById('about-the-found');
+    if (section) {
+      const offset = section.offsetTop - 134;
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+    }
+  }
+
+  useEffect(()=>{
+    const env = import.meta.env
+    fetch(
+      `${env.VITE_CMS_BASE_URL}${env.VITE_CMS_API_URL}carousel`
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        setItems(json.sort((a, b) => a.id - b.id))
+        // setItems([json[0]])
+      });
+  }, []) 
+
   return (
     <Carousel fade>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={image1}
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h3 className="caption-1">
-            RELIVE THE BEST OF OUR 
-            <strong className="caption-1-year"> 2022 </strong> 
-            EVENTS
-          </h3>
+      {items &&
+        items.map((item, i)=>
+          <Carousel.Item key={item.id}>
+            <img
+              className="d-block w-100"
+              src={item.custom_fields.carousel_image[0]}
+              alt="Second slide"
+            />
+            <Carousel.Caption 
+              className={item.custom_fields.carousel_title[0].includes('TITAN') ? 'carousel-caption-3' : ''}>
+              {item.custom_fields.carousel_title[0].includes('TITAN')
+                ? <div className="titan_section">
+                    
+                    <p className="carousel_subtitle d-flex flex-column">
+                      <span className="d-md-none">
+                        <img src={item.custom_fields.carousel_icon_titan} alt="titan" />
+                      </span>
+                      {item.custom_fields.carousel_subtitle}
+                    </p>
+                    <h3
+                      className="titan_title"
+                      dangerouslySetInnerHTML={{__html: item.custom_fields.carousel_title}}>
+                    </h3>
 
-          <p className="caption-1-p">WATH THE VIDEO</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={image2}
-          alt="Second slide"
-        />
+                    <p className="carousel_description">
+                      {item.custom_fields.carousel_description}
+                    </p>
+                  </div>
+                :<h3
+                    className={i === 0 ? 'caption-1' : ''}
+                    dangerouslySetInnerHTML={{__html: item.custom_fields.carousel_title}}>
+                  </h3>
+              }
 
-        <Carousel.Caption>
-          <h3>LEARN MORE ABOUT THE FUND AND OUR STORY</h3>
-          <p>LEARN ABOUT US</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={image3}
-          alt="Third slide"
-        />
+              {item.custom_fields.carousel_btn_text[0].includes('VIDEO') ?
+                <>
+                  <p className={i === 0 ? 'caption-1' : ''} onClick={handleShow}>
+                    {item.custom_fields.carousel_btn_text}
+                  </p>
+                  <Modal show={show} onHide={handleClose} centered size="lg">
+                    <video 
+                      src={item.custom_fields.carousel_video}
+                      controls>
+                    </video>
+                  </Modal>
+                </>
+                : 
+                  <>
+                  {item.custom_fields.carousel_title[0].includes('STORY') 
+                    ? <p 
+                        className={i === 0 ? 'caption-1' : ''} 
+                        onClick={goPage}>
+                        {item.custom_fields.carousel_btn_text}
+                      </p>
+                    : <p className={i === 0 ? 'caption-1' : ''} >
+                        {item.custom_fields.carousel_btn_text} 
+                      </p>
+                  }
+                  
+                </>
+              }
 
-        <Carousel.Caption className="carousel-caption-3">
-          <h3>Third slide label</h3>
-          <p>
-            Learn more
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
+              
+            </Carousel.Caption>
+            
+          </Carousel.Item>
+        )
+      }
+
     </Carousel>
   )
 }

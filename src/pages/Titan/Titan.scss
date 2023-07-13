@@ -3,7 +3,6 @@
   min-height: calc(100vh - 160px);
   color: #717171;
   padding-top: 1rem;
-  padding-bottom: 2rem;
   @include media-query(medium){
     padding-top: 7rem;
   }

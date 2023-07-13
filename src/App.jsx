@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import Team from './pages/Team/Team'
 import Events from './pages/Events/Events'
+import Titan from './pages/Titan/Titan'
 // import { useContextGlobal } from './context/global.context'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path='/team' element={<Team />} />
         <Route path='/events' element={<Events />} />
+        <Route path='/titan-100' element={<Titan />} />
         <Route path='*' element={<NotFound />} />
       </Route>
     )

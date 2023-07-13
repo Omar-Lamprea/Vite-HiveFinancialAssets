@@ -2,6 +2,7 @@ import Carousel from "react-bootstrap/Carousel";
 import './CarouselHome.scss'
 import Modal from 'react-bootstrap/Modal';
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const CarouselHome = () => {
 
@@ -40,7 +41,7 @@ const CarouselHome = () => {
             <img
               className="d-block w-100"
               src={item.custom_fields.carousel_image[0]}
-              alt="Second slide"
+              alt="Slide carousel"
             />
             <Carousel.Caption 
               className={item.custom_fields.carousel_title[0].includes('TITAN') ? 'carousel-caption-3' : ''}>
@@ -68,19 +69,20 @@ const CarouselHome = () => {
                   </h3>
               }
 
-              {item.custom_fields.carousel_btn_text[0].includes('VIDEO') ?
-                <>
-                  <p className={i === 0 ? 'caption-1' : ''} onClick={handleShow}>
-                    {item.custom_fields.carousel_btn_text}
-                  </p>
-                  <Modal show={show} onHide={handleClose} centered size="lg">
-                    <video 
-                      src={item.custom_fields.carousel_video}
-                      controls
-                      autoPlay>
-                    </video>
-                  </Modal>
-                </>
+              {item.custom_fields.carousel_btn_text[0].includes('VIDEO') 
+                ?
+                  <>
+                    <p className={i === 0 ? 'caption-1' : ''} onClick={handleShow}>
+                      {item.custom_fields.carousel_btn_text}
+                    </p>
+                    <Modal show={show} onHide={handleClose} centered size="lg">
+                      <video 
+                        src={item.custom_fields.carousel_video}
+                        controls
+                        autoPlay>
+                      </video>
+                    </Modal>
+                  </>
                 : 
                   <>
                   {item.custom_fields.carousel_title[0].includes('STORY') 
@@ -89,11 +91,20 @@ const CarouselHome = () => {
                         onClick={goPage}>
                         {item.custom_fields.carousel_btn_text}
                       </p>
-                    : <p className={i === 0 ? 'caption-1' : ''} >
-                        {item.custom_fields.carousel_btn_text} 
-                      </p>
+                    : <>
+                        { item.custom_fields.carousel_title[0].includes('TITAN')
+                          ? 
+                            <Link to="/titan-100">
+                              <p >
+                                {item.custom_fields.carousel_btn_text}
+                              </p>
+                            </Link>
+                          : <p>
+                              {item.custom_fields.carousel_btn_text} 
+                            </p>
+                        }
+                      </>
                   }
-                  
                 </>
               }
 

@@ -2,6 +2,7 @@ import { Container } from 'react-bootstrap'
 import './TeamHome.scss'
 import UserCard from './UserCard'
 import { useContextGlobal } from '../../context/global.context'
+import { Link } from 'react-router-dom'
 
 const TeamHome = () => {
   const {state} =useContextGlobal()
@@ -25,7 +26,9 @@ const TeamHome = () => {
           )
         }
       </div>
-      <button>LEARN MORE</button>
+      <Link to="/team">
+        <button>LEARN MORE</button>
+      </Link>
     </Container>
   )
 }

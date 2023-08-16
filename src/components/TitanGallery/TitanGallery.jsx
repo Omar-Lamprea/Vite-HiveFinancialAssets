@@ -5,10 +5,8 @@ import Modal from 'react-bootstrap/Modal';
 import './TitanGallery.scss'
 import CarouselGallery from './CarouselGallery';
 const TitanGallery = ({images}) => {
-
-  const list = images.split('\r\n')
+  const list = images.split('\r\n').filter(i => i !== "")
   const [indexImage, setIndexImage] = useState(list.length -1)
-
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);

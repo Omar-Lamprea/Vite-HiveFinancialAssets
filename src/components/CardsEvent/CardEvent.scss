@@ -35,12 +35,14 @@
     @include media-query(large){
       width: 471px;
       height: 290px;
+      object-fit: cover;
     }
     }
   }
 
   &_data{
-    max-width: 336px;
+    // max-width: 336px;
+    max-width: 471px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

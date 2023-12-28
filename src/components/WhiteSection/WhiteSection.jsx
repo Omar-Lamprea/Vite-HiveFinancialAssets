@@ -5,7 +5,7 @@ const WhiteSection = () => {
   return (
     <Container className='white_section mt-5 d-flex flex-column flex-md-row justify-content-center align-items-center'>
       <div className="Why-logo">
-        <img src={image} alt="" />
+        <img src={image} alt="" style={{width: "223px"}}/>
       </div>
       <div className="content">
         <h3>CONSISTENCY, EXPERIENCE, ANALYTICS</h3>

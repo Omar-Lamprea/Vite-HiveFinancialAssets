@@ -25,7 +25,7 @@
         font-size: 18px;
         &:hover{
           transition: .15s ease-in all;
-          color: #EECC5F;
+          color: var(--main-bg-color-hover);
         }
       }
     }

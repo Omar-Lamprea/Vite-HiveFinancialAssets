@@ -8,7 +8,7 @@
 
   &_content{
     padding: 1rem;
-    background-color: #826961a1;
+    background-color: var(--main-bg-color-transparent);
     display: flex;
     flex-direction: column;
     gap: 1rem 0;

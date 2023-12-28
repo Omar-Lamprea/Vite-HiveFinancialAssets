@@ -35,7 +35,7 @@ const Events = () => {
           <CardEvent 
             key={data.id}
             event={data}
-            className={`${index % 2 === 0 ? "white" : "gray"}`}
+            className={`${index % 2 !== 0 ? "white" : "gray"}`}
           />
         )
       }
